@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 
 public class Pair<T, U> {
@@ -166,6 +166,16 @@ public class main : MonoBehaviour {
                 list_mail.Add(r_mail);
             }
         }
+
+
+        double state = money;
+        foreach (KeyValuePair<string, Pair<double, double>> i in companies) {
+            state += i.Value.first * i.Value.second;
+        }
+        if (state < 200) {
+            SceneManager.LoadScene(1);
+        }
+
     }
 
 
